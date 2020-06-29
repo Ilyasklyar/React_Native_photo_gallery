@@ -1,0 +1,2 @@
+export const GET_PROFILE_LIST = 'GET_PROFILE_LIST'
+export const GET_NEW_PAGE = 'GET_NEW_PAGE'

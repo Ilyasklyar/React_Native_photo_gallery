@@ -1,21 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
+import 'react-native-gesture-handler';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './src/screens/HomeScreen';
+import PhotoScreen from './src/screens/PhotoScreen';
+import thunk from 'redux-thunk';
+import rootReducer from './src/redux/reducers/rootReducer';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk)
+)
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="HomeScreen">
+          <Stack.Screen
+            name="HomeScreen"
+            component={HomeScreen}
+            options={{ title: 'Profile' }}
+          />
+          <Stack.Screen name="PhotoScreen" component={PhotoScreen} options={{ title: 'Photo' }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
+
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
