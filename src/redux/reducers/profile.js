@@ -14,8 +14,7 @@ export default profileReducer = (state = inicialState, action) => {
             }
         }
         case GET_NEW_PAGE: {
-            console.log('111', action);
-
+            
             return {
                 ...state, page: ++action.data
             }

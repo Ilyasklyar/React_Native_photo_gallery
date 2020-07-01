@@ -16,7 +16,7 @@ const HomeScreen = (props) => {
     const onPressPhoto = photo => {
         props.navigation.navigate('PhotoScreen', { photo })
     }
-    const [opacity] = useState(new Animated.Value(0, 2))
+    const [opacity] = useState(new Animated.Value(0.2))
 
     useEffect(() => {
         Animated.timing(opacity, {

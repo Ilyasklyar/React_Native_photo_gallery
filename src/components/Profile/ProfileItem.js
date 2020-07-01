@@ -2,19 +2,19 @@ import React from 'react'
 import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 const ProfileItem = (props) => {
- // console.log('qqqq', props.id);
+
   return (
     <View style={styles.itemlist}>
       <View>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={()=> props.onPressPhoto(props.imagefull)}
-      >
-        <Image style={styles.img}
-          source={{
-            uri: `${props.imageSmall}`,
-          }}
-        />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => props.onPressPhoto(props.imagefull)}
+        >
+          <Image style={styles.img}
+            source={{
+              uri: `${props.imageSmall}`,
+            }}
+          />
         </TouchableOpacity>
       </View>
       <View>
